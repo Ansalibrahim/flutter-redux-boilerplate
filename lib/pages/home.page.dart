@@ -4,6 +4,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_app/actions/actions.dart';
 import 'package:flutter_app/app_state.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_app/helpers.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,6 +22,22 @@ class _HomePageState extends State<HomePage> {
     return new Scaffold(
         appBar: new AppBar(
           title: new Text('Home'),
+            leading: new FlatButton(
+//              icon: new Icon(Icons.playlist_play),
+              child: new Text('logout', style:new TextStyle(color: Colors.white)),
+              onPressed: () {
+                redirect(context, 'auth/login');
+              },
+            ) ,
+          actions: <Widget>[
+            new FlatButton(
+//              icon: new Icon(Icons.playlist_play),
+              child: new Text('about', style:new TextStyle(color: Colors.white)),
+              onPressed: () {
+                navigate(context, 'about');
+              },
+            )
+          ],
         ),
         body: new Container(
 //          alignment: Alignment.center,
@@ -42,7 +59,10 @@ class _HomePageState extends State<HomePage> {
                               // So this will be rerendered when that slice of
                               // state changes
                               vm.count.toString(),
-                              style: Theme.of(context).textTheme.display1,
+                              style: Theme
+                                  .of(context)
+                                  .textTheme
+                                  .display1,
                             );
                           }
                       )),
@@ -57,7 +77,8 @@ class _HomePageState extends State<HomePage> {
                                 store.dispatch(new IncrementCountAction());
                               };
                             },
-                            builder: (BuildContext context, VoidCallback increase) {
+                            builder: (BuildContext context,
+                                VoidCallback increase) {
                               return new RaisedButton(
                                 onPressed: increase,
                                 child: new Icon(Icons.add),

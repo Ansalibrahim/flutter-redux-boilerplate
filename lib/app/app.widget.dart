@@ -1,5 +1,5 @@
 import 'package:flutter_app/app/app.dart';
-import 'package:flutter_app/pages/home.page.dart';
+import 'package:flutter_app/pages/auth/login.page.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatefulWidget {
@@ -14,7 +14,7 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'App',
-      home: new HomePage(),
+      home: new LoginPage(),
       onGenerateRoute: MainApp.router.generator,
     );
   }

@@ -12,7 +12,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Home'),
+        title: new Text('About'),
       ),
       body: new Center(
           child: new Text('You are in the about page!')
